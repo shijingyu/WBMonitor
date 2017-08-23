@@ -25,9 +25,9 @@ def downloadImg(imgSrc):
 
 def sendMail(dicts):
     flag = True
-    _user = "" #发件人
-    _pwd  = "" #授权码
-    _to   = "" #收件人
+    _user = "shijy675497282@163.com" #发件人
+    _pwd  = "mkstone123" #授权码
+    _to   = "945090896@qq.com" #收件人
     try:
         text = u'发送时间: '+dicts['created_at']+u'<br>'
         text += u'发送内容: <br>'+dicts['text']+u'<br>'
@@ -44,7 +44,7 @@ def sendMail(dicts):
         msg['Form'] = formataddr(["微博监控系统",_user])
         msg['To'] = formataddr(["微博监控系统",_to])
         print msg.as_string()
-        server = smtplib.SMTP_SSL('smtp.qq.com',465)
+        server = smtplib.SMTP_SSL('smtp.163.com',994)
         server.login(_user,_pwd)
         server.sendmail(_user, _to, msg.as_string())
         server.quit()
